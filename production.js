@@ -28,7 +28,16 @@ function init(config){
   var deployd = require('deployd');
   var deploydOptions = {
     port: config.dpd_port,
-    env: config.dpd_env
+    env: config.dpd_env,
+    db: {
+    host: 'ds013898.mongolab.com',
+    port: 13898,
+    name: 'heroku_pr3c8xhr',
+    credentials: {
+      username: 'heroku_pr3c8xhr',
+      password: '20gpo4e6f3jinr9aqkphncs86g'
+    }
+  }
   };
   var dpd = deployd(deploydOptions);
   dpd.listen();
