@@ -9,7 +9,8 @@ config = {
     'dpdServerRoot' :  getenv('SM_DPD_SERVER_ROOT'),
     'sm_apikey': '2a2f7dbfcee845adc541d28d43b41792',
     'mashape_apikey': getenv('MASHAPE_APIKEY'),
-    'dpd_port' :    2403,
+    //'dpd_port' :    2403,
+    'dpd_port' :    process.env.PORT ,
     'dpd_env' :    'development',
     'sm_api_root': 'http://dev-api.webaroo.com/sm/api/'
   };
@@ -29,15 +30,15 @@ function init(config){
   var deploydOptions = {
     port: config.dpd_port,
     env: config.dpd_env,
-    db: {
-    host: 'ds013898.mongolab.com',
-    port: 13898,
-    name: 'heroku_pr3c8xhr',
-    credentials: {
-      username: 'heroku_pr3c8xhr',
-      password: '20gpo4e6f3jinr9aqkphncs86g'
-    }
-  }
+        db: {
+        host: 'ds013898.mongolab.com',
+        port: 13898,
+        name: 'heroku_pr3c8xhr',
+            credentials: {
+              username: 'heroku_pr3c8xhr',
+              password: '20gpo4e6f3jinr9aqkphncs86g'
+            }
+      }
   };
   var dpd = deployd(deploydOptions);
   dpd.listen();
